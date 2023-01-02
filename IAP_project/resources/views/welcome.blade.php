@@ -22,6 +22,7 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
+			<x-flash-message/>
 
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
