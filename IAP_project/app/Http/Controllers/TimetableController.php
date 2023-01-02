@@ -25,4 +25,13 @@ class TimetableController extends Controller
         return view('student.timetable', ['weekDays' => $weekDays, 'calendarData' => $calendarData]);
     }
 
+    public function show_lectimetable(CalendarService $calendarService)
+    {
+
+        $weekDays     = Classes::WEEK_DAYS;
+        $calendarData = $calendarService->generateCalendarData($weekDays);
+
+        return view('lecturers.timetable', ['weekDays' => $weekDays, 'calendarData' => $calendarData]);
+    }
+
 }

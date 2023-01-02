@@ -11,6 +11,7 @@ use App\Models\Units;
 use Illuminate\Support\Facades\DB;
 use App\Models\Announcements;
 use App\Models\graduationList;
+use App\Models\coursework;
 
 class StudentController extends Controller
 {
@@ -84,7 +85,7 @@ class StudentController extends Controller
             ->join('units', 'classes.units_id', 'units.id')
             ->join('units_lists', 'units.units_list_id', 'units_lists.id')
             ->where('student_classes.student_id', auth()->user()->id)
-            ->select('units_lists.name', 'units.course', 'units.semester')
+            ->select('units_lists.name', 'units.course', 'units.semester', 'classes.id')
             ->get();
 
 
@@ -166,5 +167,13 @@ class StudentController extends Controller
 
         $student = User::create($data);
         return redirect('/admin')->with('message', 'Student registered succesfully'); 
+    }
+
+    public function view_coursework(Classes $classes_id){
+        $files = coursework::where('classes_id', $classes_id->id)
+        ->get();
+
+        return view('student.units.materials', ['files'=>$files]);
+
     }
 }

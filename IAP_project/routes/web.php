@@ -101,6 +101,7 @@ Route::post('/create_session/{class_id}',[LecturerController::class, 'create_ses
 Route::get('/edit_attendance/{session_id}',[LecturerController::class, 'edit_attendance']);
 Route::post('/process_session',[LecturerController::class, 'process_session']);
 Route::get('/past_classes',[LecturerController::class, 'past_classes']);
+Route::post('/post_grades/{class_id}',[LecturerController::class,'postgrades']);
     Route::get('/dept_announcements', [StaffController::class, 'displayDeptAnnouncements']);
     Route::get('/staffAnnounce', [AnnouncementsController::class, 'staffAnnounce']);
     Route::get('/allstaff', [AnnouncementsController::class, 'staffAnnounce']);
@@ -128,12 +129,15 @@ Route::get('/past_classes',[LecturerController::class, 'past_classes']);
 
     Route::get('/timetable', [TimetableController::class, 'show_timetable']);
     Route::get('/studtimetable', [TimetableController::class, 'show_studtimetable']);
+    Route::get('/lectimetable', [TimetableController::class, 'show_lectimetable']);
+
 
     Route::delete('/appliedGrad/{graduationapplicant}', [AdminController::class, 'declineGrad']);
 
     Route::put('/appliedGrad/{graduationapplicant}', [AdminController::class, 'acceptGrad']);
 
     Route::get('/graduate', [StudentController::class, 'graduants']);
+    Route::get('/view_coursework/{classes_id}', [StudentController::class, 'view_coursework']);
 
 
 });

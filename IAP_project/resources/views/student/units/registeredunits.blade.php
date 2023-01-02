@@ -2,7 +2,7 @@
     @include('student.partials._sidebar2')
 
     <div class="wrapper" id="wrapper">
-        <x-card class="text-gray-900 bg-fuchsia-300 mt-4 rounded-lg">
+        <x-card class="text-gray-900 bg-fuchsia-200 mt-4 rounded-lg">
             <table>
             <tr>
                     <th>semester</th>
@@ -17,7 +17,7 @@
                         <td class="">{{ $unit->semester }}</td>
                         <td class="">{{ $unit->course }}</td>
                         <td class="">{{ $unit->name }}</td>
-                        
+                        <td class="p-2"><a href="/view_coursework/{{ $unit->id }}"> <x-primary-button class="bg-fuchsia-600 w-50 h-12>">Coursework</x-primary-button></a> </td>
 
                     </tr>
                 @endforeach
