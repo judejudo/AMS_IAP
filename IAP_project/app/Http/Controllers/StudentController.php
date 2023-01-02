@@ -135,7 +135,7 @@ class StudentController extends Controller
 
     public function graduants()
     {
-        if (auth()->user()->user_type != 'student') {
+        if (auth()->user()->user_type != 'admin') {
             abort(403, 'Forbidden!!!');
         }
         $gradApplicants = DB::table('graduation_lists')
