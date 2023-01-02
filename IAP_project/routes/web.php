@@ -127,6 +127,7 @@ Route::get('/past_classes',[LecturerController::class, 'past_classes']);
     Route::post('/register_unit/{class_id}', [StudentController::class, 'register_unit']);
 
     Route::get('/timetable', [TimetableController::class, 'show_timetable']);
+    Route::get('/studtimetable', [TimetableController::class, 'show_studtimetable']);
 
     Route::delete('/appliedGrad/{graduationapplicant}', [AdminController::class, 'declineGrad']);
 
